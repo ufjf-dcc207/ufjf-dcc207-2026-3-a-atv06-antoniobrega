@@ -13,9 +13,8 @@ export const Atributo: React.FC<AtributoProps> = ({ nome }) => {
   };
 
   return (
-    <>
+    <div>
       <span>{nome}</span>
-      
       {[...Array(5)].map((_, index) => {
         const isColorido = index < valor;
         return (
@@ -27,8 +26,7 @@ export const Atributo: React.FC<AtributoProps> = ({ nome }) => {
           </span>
         );
       })}
-
       <button onClick={incrementar}>+</button>
-    </>
+    </div>
   );
 };
