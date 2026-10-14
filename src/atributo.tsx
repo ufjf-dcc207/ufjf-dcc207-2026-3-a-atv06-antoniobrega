@@ -1,32 +1,26 @@
-import React, { useState } from 'react';
-import './Atributo.css';
+import { useState } from "react";
+import "./Atributo.css";
+type AtributoProps = {
+    icone: string;
+}
+export default function Atributo({ icone }: AtributoProps) {
+    const [valor, setValor] = useState<number>(0)
 
-interface AtributoProps {
-  nome: string;
+    return (
+        <div className="atributo">
+            {valor}{icone.repeat(valor)}<span className="inativo">{icone.repeat(5 - valor)}</span>
+            <button onClick={() => {
+                setValor(updateValor);
+                setValor(updateValor);
+            }}>+</button>
+        </div>
+    );
 }
 
-export const Atributo: React.FC<AtributoProps> = ({ nome }) => {
-  const [valor, setValor] = useState(0);
-
-  const incrementar = () => {
-    setValor((prev) => (prev < 5 ? prev + 1 : 0));
-  };
-
-  return (
-    <div>
-      <span>{nome}</span>
-      {[...Array(5)].map((_, index) => {
-        const isColorido = index < valor;
-        return (
-          <span
-            key={index}
-            className={`coracao ${isColorido ? 'colorido' : 'apagado'}`}
-          >
-            ❤️
-          </span>
-        );
-      })}
-      <button onClick={incrementar}>+</button>
-    </div>
-  );
-};
+function updateValor(prevValor) {
+    if (prevValor === 5) {
+        return 0;
+    } else {
+        return prevValor + 1;
+    }
+}
