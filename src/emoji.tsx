@@ -11,6 +11,7 @@ const EMOJI_MAP = new Map<EMOJI_KEYS, string>([
 
 
 
+
 export default function Emoji() {
 
     const [vida, setVida] = useState<number>(5);
@@ -28,7 +29,7 @@ export default function Emoji() {
         setAgua(Math.min(5, agua + 1));
     }
     function altenarLuzClick() {
-        setLuz(!luz);
+        setEmoji({...Emoji, luz: !Emoji.luz});
     }
     function cicloClick() {
         if(vida === 0) return;
