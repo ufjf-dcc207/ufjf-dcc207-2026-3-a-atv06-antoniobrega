@@ -81,3 +81,7 @@ export default function Emoji() {
         </div>
     );
 }
+
+function setEmoji(arg0: { luz: boolean; }) {
+    throw new Error("Function not implemented.");
+}
